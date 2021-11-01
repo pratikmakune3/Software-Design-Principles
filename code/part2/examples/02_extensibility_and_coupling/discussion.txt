@@ -1,0 +1,12 @@
+Tight coupling often makes design hard to extend and to test.
+
+As much as possible favor loose coupling and also low coupling.
+
+Fewer things to depend on lowers the frequency of change and lowers fragility of code
+The more abstract a dependency is the more extensible the design is
+
+But, please don't blindly use these principles or practices as they may lead to 
+unnecessarily complex design.
+
+We have to evaluate trade-offs and context really matters.
+
