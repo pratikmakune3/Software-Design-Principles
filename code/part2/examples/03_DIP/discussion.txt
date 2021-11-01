@@ -1,0 +1,29 @@
+Dependency Inversion Principle (DIP)
+
+Take with a large grain of salt, please don't do this blindly.
+
+A concrete class should not depend on another concrete class, instead they both should
+depend on an interface.
+
+Human ----> Clock
+
+Tight coupling
+
+Suppose a Human really is using a Clock for an alarm.
+
+We can use different things for alarms:
+TV
+SmartPhone
+Computer
+...
+
+
+Human -----> Alarm  <|---- Clock
+                    <|---- SmartPhone
+                    <|---- TV
+		    ...
+
+The direction of dependency was originally from concrete Human to a concrete Clock.
+Now the direction of the dependency has been inverted - both Human and Clock now depend on the
+Alarm interface.
+
