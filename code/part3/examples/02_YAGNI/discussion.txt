@@ -1,0 +1,13 @@
+YAGNI(y)
+
+You Aren't Gonna Need It (yet)
+
+We are smarter tomorrow than we are today
+
+If it is possible to postpone a decision or an implementation we should
+
+Focus on what is necessary now and postpone all else to later.
+
+Look at the cost and probability of needing something before implementing it.
+
+
