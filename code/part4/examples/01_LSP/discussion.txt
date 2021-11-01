@@ -1,0 +1,77 @@
+Inheritance is the weakest link of OOP
+
+Inheritance is predominantly a feature needed in statically typed languages.
+
+Inheritance leads to tight coupling between the derived class and it base class.
+
+Should we use inheritance or delegation?
+
+If an object of B wants to use an object of A, then use delegation.
+
+If an object of B should be used where an object of A is expected, then use inheritance.
+
+use something vs. to be used as something
+  delegation          inheritance
+
+
+Use delegation for reuse and use inheritance for substitutability.
+
+class Person extends LivingCreature {
+  private Car car;
+
+  public void drive() {
+    //do more things here - optional
+    car.drive(); //delegation
+    //do more things here - optional
+  }
+}
+
+
+Delegation comes in three forms:
+association
+aggregation
+composition
+
+You may delegate to something that you associate, aggregate, or compose.
+
+
+Delegation often improves SRP and SLAP
+
+We have to abide by a contract when it comes to inheritance but we have no such restrictions
+when it comes to delegation.
+
+It is easier to implement delegation than inheritance from the contract point of view and
+compliance point of view.
+
+Barbara Liskov Substitution Principle (LSP) comes in
+
+A user of a base class should *not* know the difference between receiving an instance of the
+base class or an instance of a derived class.
+
+For this to happen:
+
+The derived class services should not require more and not promise less than the corresponding
+services of the base class.
+
+In other words, the derived class should not change any of the externally visible behavior
+of the base class when it may change the implementation that it uses.
+
+If a user of a base class need to know the difference between base and derived what will happen?
+
+If we violate LSP, the users will violate OCP.
+
+Good examples of LSP:
+
+1. Java: a derived class method can't throw any new exceptions that a base method does not throw
+(with some exceptions).
+
+2. Java: a derived class method can't be private if the base method is protected or public.
+...
+
+We are not saying don't use inheritance.
+
+Evaluate.
+
+Ask if we want to use an object or we really are focused on an object to be used in place of
+another. That will help us better to choose between inheritance and delegation.
+
