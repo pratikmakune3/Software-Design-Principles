@@ -1,0 +1,87 @@
+Single Responsibility Principle (SRP):
+
+The reason for change of a function should be minimum - cohesion
+
+How can we tell if our code follow the SRP?
+
+What does the work "Responsibility" really mean?
+
+code
+shapes = getShapes()
+transformShapes(shapes)
+displayShapes(shapes)
+
+A developer mentioned that the above code was violating SRP!!
+
+Some people go to the extreme to say that a function does not follow SRP if it
+-has multiple parameters
+-has an if and else
+-etc.
+
+Instead of going to that extreme, let us think about an easy violation of SRP:
+
+Long functions or long methods:
+
+Do you think writing long functions is a good idea?
+Yes / no
+
+Have you recently seen long functions at work?
+Yes / no
+
+Cognitive dissonance
+
+Why are long functions such a bad idea?
+-Hard to test
+-Hard to understand
+-Hard to read
+-Hard to maintain
+-Hard to debug
+-Hard to reuse
+-leads to duplication
+-low cohesion  | diagonal opposite
+-high coupling | of good design
+-...
+
+What is a long function? How long is long?
+10,000 lines? - yes, that is long
+1000 lines?
+100 lines? - may be not, depends on...
+10 lines? - may be long in some languages but not in others
+...
+
+We don't have a way to agree on the length of a function to agree what long is...
+
+Some one said a function is not long if we can see it entirely in a window...
+And someone else asked what if your font size?
+
+**As it turns out a long function is not to be measured by the number of lines of code.
+
+A good function focuses on a single level of detail or a single level of abstraction: SLAP
+Single Level of Abstraction Principle
+
+A long function or a short function is not about the length of the function but it is about
+the number of levels of details or abstractions that the function directly focuses on.
+
+computeTax(Order order) {
+  open connection
+  write sql to the tax rate for the given state
+  do the multiplication and other computations
+  update the order
+  return
+}
+
+The above function may not be very long - may be 10 to 20 lines, but it fails the SLAP principle
+
+computeTax(Order order) {
+  taxRate = fetchTaxRateFromDB();
+
+  ...compute is done here...
+
+  updateTaxAmount(); //or return the tax amount where update happens elsewhere
+}
+
+Each lines of the code should focus on delegating the responsibility of a lower level to another
+function.
+
+SLAP trumps SRP
+
