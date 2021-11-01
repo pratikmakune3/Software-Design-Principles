@@ -1,0 +1,38 @@
+Open Closed Principle (OCP)
+
+A software module must be open for extension but closed for modification.
+Bertrand Meyer
+
+It is more expensive to modify existing pieces of code than to add a very small piece of new code.
+
+Extensibility
+Abstraction and polymorphism are the key
+
+What is the most non-polymorphic keyword or function in languages like Java, C#, C++, JavaScript,...
+
+new
+
+new is Latin for tight coupling
+
+new says that I want an instance of that particular type - tight coupling
+
+new is polymorphic in languages like Ruby, however.
+
+Several design patterns (Factory method, abstract factory, prototype, etc.) and a few frameworks/
+libraries (Spring, Guice, etc.) have been created just to solve this problem of tight coupling of
+new.
+
+Almost always, but not all the time, using instanceof if a violation of OCP
+
+An example of where it is not:
+public boolean equals(Object other) {
+  if(other instanceof Animal) {
+    ....
+    //this method is in the Animal class and does not have to change if other types are added.
+  }
+
+  return false;
+}
+
+We want to avoid tight coupling and make the code extensible for change.
+
