@@ -1,0 +1,24 @@
+What is extensibility?
+
+A piece of code can do something different than before, based on the change in requirements,
+but with minimum cost and effort to change.
+
+A piece of code can't be extensible arbitrarily.
+
+For a code to be extensible, first ask "extensibility for what?"
+
+For a code to be extensible, we have to anticipate a particular type of change.
+
+Who can anticipate really well?
+
+There are 3 kinds of people on every team that makes software:
+1. Those who know the domain really well but don't know software design as much
+2. Those who know software design really well but don't know the domain as much
+3. Those who know both really well
+4. (We will politely ignore that 4th type for now)
+
+To anticipate we need good knowledge of both the domain and the software design constraints.
+
+Since most people belong to group 1 or group 2 we have to collaborate for effectively designing
+for extensibility.
+
