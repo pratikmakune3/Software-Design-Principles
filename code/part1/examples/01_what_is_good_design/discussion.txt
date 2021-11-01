@@ -1,0 +1,60 @@
+A design is a conceptualization of the implementation.
+
+It is a bridge between the problem/requirements and the language/framework, etc.
+
+
+What is a good design?
+-A good design is modifiable with minimum effort - extensible
+-flexible
+-easy to understand
+-relevant and valuable
+-simple
+-cost effective
+-modular
+-reusable
+-testable
+-...
+
+Economic impact of what we do is very important
+
+https://twitter.com/venkat_s/status/561046784186015744
+
+Characteristics of good design:
+-Simple
+-Fewer moving parts
+-Relevant
+-highly cohesive and loosely coupled
+
+Cohesion:
+code that does one thing and only one thing really well
+Narrow and focused
+That changes are less frequent
+The cost of changes are minimized
+Separation of concerns
+
+If a piece of code has to talk to a database and also compute the tax for a particular order
+It has to change for multiple reasons:
+ - change to the database schema, etc.
+ - change to the tax laws
+ - change to the order format
+
+If the code receives the tax rate and the price, then it focuses only on the computation.
+The only thing that changes this function in the future is the tax laws.
+
+Coupling:
+We want both low coupling and loose coupling
+
+Low is depending on fewer things
+Loose (instead of tight) is to depend on something that is more stable, like an interface
+rather than something that is unstable or changes frequently like a class
+
+A piece of code can't be more stable than the code it depends on.
+
+It really comes down to frequency of change to a piece of code.
+
+High cohesion and low/loose coupling reduces the frequency of change
+
+Low cohesion and high/tight coupling increases the frequency of change
+
+Minimize the cost of change.
+
