@@ -1,0 +1,60 @@
+Given code has many smells:
+
+-duplication of code and messy if-else
+-Remote is not extensible
+-Remote has tight coupling
+-Failure of single responsibility principle, lack of cohesion
+-hard to test
+
+What is good, however:
+1. We can have multiple Remotes control different devices
+2. We can have multiple Remotes for the same device
+
+Solution1:
+-use DIP
+-Create an interface Device and let the Remote use it
+
+What is good:
+1. We can have multiple Remotes control different devices
+2. We can have multiple Remotes for the same device
+3. We don't have tight coupling. Remote is extensible for adding new devices.
+
+What needs improvement:
+1. TV, Garage, etc. have to conform to some arbitrary interface because a Remote
+needs it. Later, we may have to implement more interfaces for other things.
+2. The methods needed for a Remote pollute the public interface of a TV, etc.
+  We don't care for up and down directly no a TV but we are force with it
+3. We may have a collision of methods between interface. What if we already have
+an up or some other interface we have already implemented has an up method?
+
+Remote --> Device <|--- TV, Garage,...
+
+Solution2:
+-use DIP but with a twist
+-We will use a Remote interface
+
+Remote  TV      (inner class TVRemote that implements Remote)
+        Garage  (inner class GarageRemote that implements Remote)
+        Fan ...
+
+What is good:
+1. We can have multiple Remotes control different devices
+2. We can have multiple Remotes for the same device
+3. We don't have tight coupling. Remote is extensible for adding new devices, 
+it is the most stable as it is an interface.
+4. TV, Garage, etc. *do not* have to conform to an arbitrary interface
+5. TV, Garage, etc. do not directly have the methods of the Remote, so there is
+no public method pollution
+6. There is no issue of collision, if we have another interface we can have
+another inner class if we like.
+7. The implements of the inner classes have direct access to the outer class
+for good efficiency where needed.
+
+What needs improvement:
+-The class TV now has more code, for its own stuff and also the inner class stuff.
+This can become quite hard to maintain as the class size / file size may be 
+large. This is where languages like C# provide a benefit via partial classes and 
+extension functions. Sadly Java has no such feature.
+
+-There is not consistent naming getRemote, fetchRemote, etc. unless we add
+an interface.
